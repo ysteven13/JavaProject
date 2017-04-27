@@ -96,6 +96,9 @@ public class GomukuProject extends PApplet {
         textSize(45);
         fill(255);
         text(gameover, (width / 2) - 110, height / 2);
+        if(!gameover.equals("")) {
+            stop();
+        }
     }
 
     public void mousePressed() {

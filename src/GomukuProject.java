@@ -3,6 +3,7 @@
  */
 import processing.core.*;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 import java.awt.color.*;
 public class GomukuProject extends PApplet {
@@ -10,20 +11,35 @@ public class GomukuProject extends PApplet {
     public static void main(String... args) {
 
         PApplet.main("ProcessingTest");
-        JFrame window = new JFrame("Control");
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        drawMenu();
     }
-    class point {
-        int x;
-        int y;
-        int value;
+    public static void drawMenu() {
+        JFrame window = new JFrame("Menu");
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setLayout(new BorderLayout());
+        window.pack();
+        window.setVisible(true);
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        JButton button1 = new JButton("Restart");
+        JButton button2 = new JButton("Restart");
 
+        panel.add(button1);
+        window.add(panel);
+    }
+    ActionListener listener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JRadioButton btn = (JRadioButton) e.getSource();
+        }
+    };
+
+    class point {
+        int x; int y; int value;
         public point(int x, int y) {
             this.x = x;
             this.y = y;
         }
-
-
         public String toString() {
             return x + " " + y + " " + value;
         }

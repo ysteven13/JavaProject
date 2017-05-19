@@ -1,24 +1,51 @@
 /**
  * Created by Steven on 4/27/2017.
  */
-        import processing.core.*;
-        import javax.swing.*;
-        import java.awt.*;
-        import java.awt.event.*;
-        import java.util.ArrayList;
+import processing.core.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.ArrayList;
 
-public class GomukuProject extends PApplet {
+public class FuckYou extends PApplet {
 
     public static void main(String... args) {
         PApplet.main("ProcessingTest");
     }
+    public static void drawMenu() {
+        JFrame window = new JFrame("Menu");
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setLayout(new BorderLayout());
+        window.pack();
+        window.setVisible(true);
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        JButton button1 = new JButton("Restart");
+        JButton button2 = new JButton("Restart");
+
+        panel.add(button1);
+        window.add(panel);
+    }
+    ActionListener listener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JRadioButton btn = (JRadioButton) e.getSource();
+        }
+    };
+
     class point {
         int x; int y; int value; int turn;
         public point(int x, int y) {
             this.x = x;
             this.y = y;
         }
-       // public String toString() {return x + " " + y + " " + value;}
+        public String toString() {
+            return x + " " + y + " " + value;
+        }
+    }
+
+    class display extends JPanel {
+
     }
     ////////////////////
     point[][] grid = new point[10][10];
@@ -75,7 +102,7 @@ public class GomukuProject extends PApplet {
                 }
             }
         }
-       // CPU();
+        // CPU();
         if(!gameover.equals("")) {
             stop();
         }
@@ -87,12 +114,12 @@ public class GomukuProject extends PApplet {
         ArrayList<Boolean> threats = new ArrayList<>();
         int x = 0;
         int y = 0;
-     //   image(blackStone, cirx, ciry, 45, 45);
+        //   image(blackStone, cirx, ciry, 45, 45);
         for(int i = 0; i < grid.length; i++) {
             for(int a = 0; a < grid.length; a++) {
-               if( winner(i,a,3)) {
+                if( winner(i,a,3)) {
 
-               }
+                }
 
             }
         }
@@ -102,7 +129,6 @@ public class GomukuProject extends PApplet {
 
 
     public void mousePressed() {
-        pause();
 
         int x = mouseX / 50;
         int y = (mouseY / 50);
@@ -136,6 +162,8 @@ public class GomukuProject extends PApplet {
             }
 
         }
+        exit();
+
         System.out.println("FUCKER");
 
 
